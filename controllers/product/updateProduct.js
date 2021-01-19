@@ -12,10 +12,9 @@ const updateProduct = (req,res) => {
     }
     db.query('update product set ? where id = ? ', [data, id], (err,result) => {
             if(err){
-                console.log(err)
-                return res.status(400).json({success: false, payload: err})
+                return res.status(200).json({success: false, payload: err})
             }
-            return res.status(200).json(result)
+            return res.status(200).json({success: true, payload: result})
         }
     )
 }

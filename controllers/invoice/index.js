@@ -1,7 +1,8 @@
 const getUserInvoiceDetail = require('./getUserInvoiceDetail')
 const getUserInvoice = require('./getUserInvoice')
-const createInvoice = require('./createInvoice')
 const deleteInvoice = require('./deleteInvoice')
+const createInvoice = require('./createInvoice')
+
 module.exports = {
     getUserInvoice,
     getUserInvoiceDetail,

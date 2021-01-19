@@ -1,15 +1,11 @@
 const db = require('../../db')
 
 const getAllUsers = (req,res) => {
-    db.query("select * from qlbd.user", (err, rows, feilds) => {
-        console.log('row',rows);
-        console.log('err',err);
-        console.log('feilds',feilds);
+    db.query("select * from user a, userdetail b where a.username = b.username", (err, rows, feilds) => {
         if(!err) {
-            console.log(rows) ,
-            res.status(200).json(rows)
+            res.status(200).json({success: true, payload: rows})
         } else{
-            console.log(err)
+            console.log({success: false, payload: err})
         }
     })
 }

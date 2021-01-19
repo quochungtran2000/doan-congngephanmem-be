@@ -13,10 +13,10 @@ const PORT = process.env.PORT || 1708
 
 const UserRouter = require('./routes/user.route')
 const ProductRouter = require('./routes/product.route')
-const Invoice = require('./routes/invoice.route')
+const InvoiceRouter = require('./routes/invoice.route')
 
 app.use('/user', UserRouter)
 app.use('/product', ProductRouter)
-app.use('/invoice', Invoice)
+app.use('/invoice', InvoiceRouter)
 
 app.listen(PORT, () => console.log(`Server listenning on port : http://localhost:${PORT}`))

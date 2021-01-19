@@ -6,11 +6,11 @@ const createProduct = (req,res) => {
     const product = {
         id, name, standardPrice: getPrice(standardPrice), salePrice: getPrice(salePrice) ,price:getPrice(price)
     }
-    db.query('INSERT INTO PRODUCT SET ?', product, (err, rows, fields) => {
+    db.query('INSERT INTO PRODUCT SET ?', product, (err, result) => {
         if(!err) {
-            res.status(200).json(rows)
+            res.status(200).json({success: true, payload: result})
         }else{
-            res.status(400).json(err)
+            res.status(200).json({success: false, payload: err})
         }
     })
 }

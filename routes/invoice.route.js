@@ -1,15 +1,16 @@
 const { Router } = require('express');
 
-const { getUserInvoice, getUserInvoiceDetail, createInvoice, deleteInvoice} = require('../controllers/invoice')
-
 const router = Router();
 
-router.route('/').get(getUserInvoice)
-
-router.route('/:id').get(getUserInvoiceDetail)
+const { getUserInvoice, getUserInvoiceDetail, createInvoice, deleteInvoice} = require('../controllers/invoice')
 
 router.route('/add').post(createInvoice)
 
+router.route('/').post(getUserInvoice)
+
+router.route('/:id').post(getUserInvoiceDetail)
+
+//createInvoice
 router.route('/delete').post(deleteInvoice)
 
 module.exports = router;
