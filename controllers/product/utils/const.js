@@ -1,0 +1,1 @@
+const productStatus = ['public','draf']

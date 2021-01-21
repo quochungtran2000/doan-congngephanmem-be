@@ -1,15 +1,32 @@
 const { Router } = require('express');
 
-const { createUser, login, getAllUsers} = require('../controllers/user')
+const { 
+    createUser, 
+    login, 
+    getAllUsers, 
+    forgotPassword, 
+    updateUser, 
+    changePassword
+} = require('../controllers/user');
 
-const { checkUserExits } = require('../validations/users')
+const { 
+    checkUserExits, 
+    checkUser, 
+    checkMatchPassword 
+} = require('../validations/users');
 
 const router = Router();
 
-router.route('/').get(getAllUsers)
+router.route('/').get(getAllUsers);
 
-router.route('/add').post(checkUserExits,createUser)
+router.route('/add').post(checkUserExits,createUser);
 
-router.route('/login').post(login)
+router.route('/forgot').post(checkUser, forgotPassword);
+
+router.route('/changepass').post(checkMatchPassword,changePassword);
+
+router.route('/update').post(checkUser, updateUser);
+
+router.route('/login').post(login);
 
 module.exports = router;
