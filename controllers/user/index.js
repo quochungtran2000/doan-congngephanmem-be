@@ -4,6 +4,7 @@ const getAllUsers = require('./getAllUsers')
 const updateUser = require('./updateUser')
 const forgotPassword = require('./forgotPassword')
 const changePassword = require('./changePassword')
+const getUserByUsername = require('./getUserByUsername')
 
 module.exports = {
     createUser,
@@ -11,5 +12,6 @@ module.exports = {
     getAllUsers,
     updateUser,
     forgotPassword,
-    changePassword
+    changePassword,
+    getUserByUsername
 }

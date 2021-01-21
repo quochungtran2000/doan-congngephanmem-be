@@ -1,4 +1,5 @@
 const db = require('../../db')
+const jwt = require('jsonwebtoken')
 
 const login = (req,res) => {
     const {username, password} = req.body;
@@ -9,7 +10,11 @@ const login = (req,res) => {
         }else{
             if(result.length !== 0){
                 if(password === result[[0]]?.password) {
-                    return res.status(200).json({success: true, payload: result[0]})
+                    const data = {username: result[0].username, isAdmin : result[0].isAdmin}
+                    // console.log(data);
+                    var token = jwt.sign(data, 'shhhhh');
+                    // console.log(token)
+                    return res.status(200).json({success: true, payload: data, token: token})
                 } else{
                     return res.status(200).json({success: false, payload: "wrong username or password"})
                 } 

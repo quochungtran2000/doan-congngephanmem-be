@@ -5,7 +5,7 @@ const getAllUsers = (req,res) => {
         if(!err) {
             res.status(200).json({success: true, payload: rows})
         } else{
-            console.log({success: false, payload: err})
+            res.status(200).json({success: false, payload: err})
         }
     })
 }

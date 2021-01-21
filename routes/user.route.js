@@ -6,7 +6,8 @@ const {
     getAllUsers, 
     forgotPassword, 
     updateUser, 
-    changePassword
+    changePassword,
+    getUserByUsername
 } = require('../controllers/user');
 
 const { 
@@ -18,6 +19,8 @@ const {
 const router = Router();
 
 router.route('/').get(getAllUsers);
+
+router.route('/').post(checkUser, getUserByUsername);
 
 router.route('/add').post(checkUserExits,createUser);
 

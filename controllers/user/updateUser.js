@@ -14,7 +14,7 @@ const updateUser = (req, res) => {
             res.status(200).json({ success: false, payload: err})
         }
         else{
-            res.status(400).json({ success: true, payload: result})
+            res.status(200).json({ success: true, payload: result})
         }
     })
 }
